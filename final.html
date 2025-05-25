@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Face Dino Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <button id="themeToggle">🌙</button>
+  <div id="welcomeScreen">
+    <h1>Face Run</h1>
+    <p>Upload your face to start the game!
+    <br>
+      Use the arrow keys or tap to jump over obstacles.
+      <br>
+      Collect coins to increase your score!
+    </p>
+    <div id="profileContainer">
+      <img
+        id="profileImage"
+        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234CAF50'/><circle cx='70' cy='40' r='8' fill='%23212121'/><path d='M50,65 Q60,75 70,65' stroke='%23212121' stroke-width='3' fill='none'/></svg>"
+        alt="Dino Head"
+      >
+    </div>
+    <input type="file" id="fileInput" accept="image/*">
+    <label for="fileInput" id="uploadLabel">Upload Face</label>
+    <button id="startButton" class="button">Start Game</button>
+  </div>
+
+  <div id="ground"></div>
+  <div id="dino">
+    <div id="dinoHead">
+      <img
+        id="dinoHeadImg"
+        src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%234CAF50'/><circle cx='70' cy='40' r='8' fill='%23212121'/><path d='M50,65 Q60,75 70,65' stroke='%23212121' stroke-width='3' fill='none'/></svg>"
+        alt="Dino Head"
+      >
+    </div>
+  </div>
+  <div id="obstacle"></div>
+  <div id="coin"></div>
+  <div id="scoreDisplay">Score: 0</div>
+
+  <div id="leaderboard">
+    <div>Leaderboard:</div>
+    <div id="leaderboardEntries"></div>
+  </div>
+
+  <div id="gameOver">
+    <div>Game Over!</div>
+    <div id="finalScore"></div>
+    <div id="restartPrompt">Tap to Restart</div>
+  </div>
+
+  <script src="run.js"></script>
+</body>
+</html>

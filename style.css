@@ -1,0 +1,389 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+    font-family: 'Poppins', sans-serif;
+    color: #2c3e50;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+    body.night-mode {
+      background-color: #1a1a2e;
+      color: #f1f1f1;
+    }
+
+    #welcomeScreen {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      max-width: 90%;
+      animation: fadeIn 0.8s ease-out;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: background-color 0.5s ease;
+    }
+
+    #welcomeScreen h1 {
+      margin-top: auto;
+      font-size: 24px;
+    }
+
+    #welcomeScreen p {
+      margin-bottom: 20px;
+      font-size: 14px;
+      
+    }
+
+    body.night-mode #welcomeScreen {
+      background-color: rgba(30, 30, 46, 0.9);
+      color: #f1f1f1;
+    }
+
+    #gameOver {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-weight: bold;
+      font-size: 30px;
+      display: none;
+      animation: fadeIn 0.7s ease-out;
+    }
+
+    body.night-mode #gameOver {
+      color: #f1f1f1;
+    }
+
+    #profileContainer {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background-color: #e0e0e0;
+      overflow: hidden;
+      position: relative;
+      border: 3px solid #4CAF50;
+    }
+
+    body.night-mode #profileContainer {
+      border: 3px solid #2d572c;
+    }
+
+    #profileImage {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #uploadLabel {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 25px;
+      font-size: 14px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+
+    body.night-mode #uploadLabel {
+      background-color: #2d572c;
+    }
+
+    #uploadLabel:hover {
+      background-color: #3e8e41;
+      transform: translateY(-2px);
+    }
+
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+
+    body.night-mode #startButton {
+      background-color: #2d572c;
+    }
+
+    .button:hover {
+      background-color: #3e8e41;
+      transform: translateY(-2px);
+    }
+
+    #themeToggle {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #2c3e50;
+      z-index: 100;
+    }
+
+    body.night-mode #themeToggle {
+      color: #f1f1f1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -55%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    /* Game Elements */
+    #ground {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #674d3c;
+      box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.5s ease;
+    }
+
+     body.night-mode #ground {
+      background-color: #a2836e;
+    }
+
+    #dino {
+      position: absolute;
+      left: 40px;
+      bottom: 60px;
+      width: 80px;
+      height: 80px;
+      z-index: 10;
+    }
+
+    #dinoHead {
+      width: 60px;
+      height: 60px;
+      background-color: #4CAF50;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+      overflow: hidden;
+      transition: background-color 0.5s ease;
+    }
+
+    body.night-mode #dinoHead {
+      background-color: #2d572c;
+    }
+
+    #dinoHeadImg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .jumping {
+      animation: jumpAnimation 0.5s ease-out;
+    }
+
+    @keyframes jumpAnimation {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-150px); }
+      100% { transform: translateY(0); }
+    }
+
+    #obstacle {
+      position: absolute;
+      right: 0;
+      bottom: 60px;
+      width: 30px;
+      height: 50px;
+    }
+
+    .cactus-small, .cactus-big {
+      background-color: #578A3C;
+      position: relative;
+      transition: background-color 0.5s ease;
+    }
+
+    .cactus-small {
+      width: 40px;
+      height: 50px;
+      position: relative
+    }
+
+     body.night-mode .cactus-small {
+      background-color: #3a5e3a;
+    }
+
+    .cactus-small::before {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 15px;
+      background-color: #578A3C;
+      top: -10px;
+      left: 5px;
+    }
+
+    body.night-mode .cactus-small::before {
+      background-color: #3a5e3a;
+    }
+
+     .cactus-big {
+      width: 30px;
+      height: 60px;
+      background-color: #578A3C;
+      position: relative;
+      transition: background-color 0.5s ease;
+    }
+
+    body.night-mode .cactus-big {
+      background-color: #3a5e3a;
+    }
+
+    .cactus-big::before {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 20px;
+      background-color: #578A3C;
+      top: -15px;
+      left: 7px;
+      transition: background-color 0.5s ease;
+    }
+
+    body.night-mode .cactus-big::before {
+      background-color: #3a5e3a;
+    }
+
+    .cactus-big::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 15px;
+      background-color: #578A3C;
+      top: 20px;
+      right: -8px;
+      transition: background-color 0.5s ease;
+    }
+
+    body.night-mode .cactus-big::after {
+      background-color: #3a5e3a;
+    }
+    
+    #coin {
+      position: absolute;
+      right: 0;
+      bottom: 200px;
+      width: 30px;
+      height: 30px;
+      background-color: gold;
+      border-radius: 50%;
+      display: none;
+      box-shadow: 0 0 10px gold, inset 0 0 5px rgba(255, 215, 0, 0.8);
+      animation: coinSpin 2s linear infinite;
+      z-index: 5;
+    }
+
+    @keyframes coinSpin {
+      0% { transform: rotateY(0); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    /* Score and Leaderboard */
+    #scoreDisplay, #leaderboard {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.5s ease, color 0.5s ease;
+      width: auto;
+    }
+
+    #scoreDisplay {
+      top: 20px;
+      left: 20px;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 8px 15px;
+    }
+
+    body.night-mode #scoreDisplay {
+      background-color: rgba(30, 30, 46, 0.9);
+    }
+
+    #leaderboard {
+      top: 20px;
+      right: 20px;
+      font-size: 16px;
+      padding: 15px;
+      border-radius: 15px;
+    }
+
+    body.night-mode #leaderboard {
+      background-color: rgba(30, 30, 46, 0.9);
+    }
+
+    #leaderboard div:first-child {
+      font-weight: 600;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 5px;
+    }
+
+    body.night-mode #leaderboard div:first-child {
+      color: #f1f1f1;
+    }
+
+    .score-popup {
+      position: absolute;
+      color: #27ae60;
+      font-weight: bold;
+      font-size: 24px;
+      opacity: 0;
+      animation: scorePopup 1s forwards;
+    }
+
+    @keyframes scorePopup {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-50px); opacity: 0; }
+    }
+
+    #fileInput {
+      display: none;
+    }
+
+    #restartPrompt {
+      font-size: 18px;
+      margin-top: 50%;
+      text-align: center;
+      color: white;
+      background-color: #4CAF50;
+      padding: 8px 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    body.night-mode #restartPrompt {
+      background-color: #2d572c;
+    }
+
+    #restartPrompt:hover {
+      background-color: #3e8e41;
+      transform: translateY(-2px);
+    }
+    
