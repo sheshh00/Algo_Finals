@@ -8,13 +8,12 @@
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <button id="themeToggle">🌙</button>
-  <div id="welcomeScreen">
+  <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
+  <section id="welcomeScreen">
     <h1>Face Run</h1>
-    <p>Upload your face to start the game!
-    <br>
-      Use the arrow keys or tap to jump over obstacles.
-      <br>
+    <p>
+      Upload your face to start the game!<br>
+      Use the arrow keys or tap to jump over obstacles.<br>
       Collect coins to increase your score!
     </p>
     <div id="profileContainer">
@@ -24,12 +23,18 @@
         alt="Dino Head"
       >
     </div>
-    <input type="file" id="fileInput" accept="image/*">
-    <label for="fileInput" id="uploadLabel">Upload Face</label>
+    <input type="file" id="fileInput" accept="image/*" hidden>
+    <label for="fileInput" id="uploadLabel" class="button">Upload Face</label>
     <button id="startButton" class="button">Start Game</button>
-  </div>
+  </section>
 
+  <div id="buildings"></div>
+  <div class="color-layer layer-1"></div>
+  <div class="color-layer layer-2"></div>
+  <div class="color-layer layer-3"></div>
+  <div class="color-layer layer-4"></div>
   <div id="ground"></div>
+
   <div id="dino">
     <div id="dinoHead">
       <img
@@ -39,20 +44,21 @@
       >
     </div>
   </div>
+
   <div id="obstacle"></div>
   <div id="coin"></div>
   <div id="scoreDisplay">Score: 0</div>
 
-  <div id="leaderboard">
+  <aside id="leaderboard">
     <div>Leaderboard:</div>
     <div id="leaderboardEntries"></div>
-  </div>
+  </aside>
 
-  <div id="gameOver">
+  <section id="gameOver">
     <div>Game Over!</div>
     <div id="finalScore"></div>
     <div id="restartPrompt">Tap to Restart</div>
-  </div>
+  </section>
 
   <script src="run.js"></script>
 </body>
